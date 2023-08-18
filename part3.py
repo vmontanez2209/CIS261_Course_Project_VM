@@ -125,7 +125,6 @@ if __name__ == "__main__":
         print()
         emp_detail = [from_date, to_date, name, hours, hourly_rate, tax_rate]
         write_employee_info(emp_detail)
-        get_name()
         print()
         from_date = get_from_date()
         emp_detail_list = read_employee_info(from_date)
