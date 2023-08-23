@@ -1,1 +1,2 @@
-vmontane|changeme123|admin
+vmontanez|changeme123|admin
+ccasas|waterboy9|user

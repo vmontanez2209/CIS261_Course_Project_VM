@@ -13,22 +13,22 @@ def create_users():
     print('----------------------------------')
     user_file = open("users.txt", "a+")
     while True:
-        username = GetUserName()
+        username = get_user_name()
         if (username.upper() == "END"):
             break
-        user_pwd = GetUserPassword()
-        user_role = GetUserRole()
+        user_pwd = get_user_password()
+        user_role = get_user_role()
         user_detail = username + "|" + user_pwd + "|" + user_role + "\n"
         user_file.write(user_detail)
     user_file.close()
     printuserinfo()
-def GetUserName():
+def get_user_name():
     username = input("Enter user name or 'End' to quit: ")
     return username
-def GetUserPassword():
+def get_user_password():
     pwd = input("Enter password: ")
     return pwd
-def GetUserRole():
+def get_user_role():
     user_role = input("Enter role (Admin or User): ")
     while True:
         if (user_role.upper() == "ADMIN" or user_role.upper() == "USER"):
@@ -36,16 +36,16 @@ def GetUserRole():
         else:
             user_role = input("Enter role (Admin or User): ")
 def printuserinfo():
-    UserFile = open("users.txt", "r")
+    user_file = open("users.txt", "r")
     while True:
-        UserDetail = UserFile.readline()
-        if not UserDetail:
+        user_detail = user_file.readline()
+        if not user_detail:
             break
-        UserDetail = UserDetail.replace("\n", "")
-        UserList = UserDetail.split("|")
-        username = UserList[0]
-        user_password = UserList[1]
-        user_role = UserList[2]
+        user_detail = user_detail.replace("\n", "")
+        user_list = user_detail.split("|")
+        username = user_list[0]
+        user_password = user_list[1]
+        user_role = user_list[2]
         print("User Name: ", username, " Password: ", user_password, "Role: ", user_role)
 
 def Login():
@@ -158,7 +158,7 @@ def print_totals(emp_totals):
 if __name__ == "__main__":
     create_users()
     print()
-    print("##### Data Entry #####")
+    print("-----------\nData Entry\n-----------")
     UserRole, UserName = Login()
     DetailsPrinted = False
     emp_totals = {}
